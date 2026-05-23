@@ -427,3 +427,101 @@ SOCIAL LOGIN
   font-weight:bold;
   cursor:pointer;
 }
+/* =========================
+   MOBILE MENU
+========================= */
+
+.menu-toggle{
+
+  display:none;
+
+  font-size:28px;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width:768px){
+
+  .navbar{
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+  }
+
+  .menu-toggle{
+
+    display:block;
+
+  }
+
+  .menu{
+
+    display:none !important;
+
+    width:100%;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-top:15px;
+
+    background:#2563eb;
+
+    padding:20px;
+
+    border-radius:12px;
+
+  }
+
+  .menu.active{
+
+    display:flex !important;
+
+  }
+
+  .menu a{
+
+    width:100%;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.2);
+
+  }
+
+}
+.search-box{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swap-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.swap-btn:hover{
+  background: #ccc;
+}

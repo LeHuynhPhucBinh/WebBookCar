@@ -12,7 +12,7 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <link rel="stylesheet"
-        href="style/style.css">
+        href="/style/style.css">
 
 </head>
 
@@ -31,10 +31,17 @@
         <h2>ĐẶT VÉ XE</h2>
         <p>Nhanh chóng - Dễ dàng - Tiện lợi</p>
       </div>
-
     </div>
 
-    <div class="menu">
+    <!-- MOBILE MENU BUTTON -->
+
+<div class="menu-toggle"
+onclick="toggleMenu()">
+
+  <i class="fa-solid fa-bars"></i>
+
+</div>
+    <div class="menu" id="mobileMenu">
 
       <a href="index.html">
         Trang chủ
@@ -422,70 +429,94 @@
     // SEARCH
     // =========================
 
-    function cariTiket(){
+function cariTiket(){
 
-      let source =
-      document.getElementById("source").value;
+  // =========================
+  // LẤY DỮ LIỆU
+  // =========================
 
-      let objective =
-      document.getElementById("objective").value;
+  let source =
+  document.getElementById("source").value;
 
-              // =========================
+  let objective =
+  document.getElementById("objective").value;
+
+  let time =
+  document.getElementById("time").value;
+
+  let quantity =
+  document.getElementById("quantity").value;
+
+  // =========================
+  // CHECK EMPTY
+  // =========================
+
+  if(
+    source === "" ||
+    objective === "" ||
+    time === ""
+  ){
+
+    alert(
+      "Vui lòng nhập đầy đủ thông tin!"
+    );
+
+    return;
+
+  }
+
+        // =========================
+        // CHECK SAME PLACE
+        // =========================
+
+        if(source === objective){
+
+          alert(
+            "Điểm đi và điểm đến không được trùng!"
+          );
+
+          return;
+
+        }
+
+        // =========================
         // CHECK DATE
         // =========================
 
-        const today = new Date(); today.setHours(0,0,0,0); 
-        const selectedDate = new Date( document.getElementById("time").value ); 
-        selectedDate.setHours(0,0,0,0); 
-        if(selectedDate < today){ alert( "Không thể chọn ngày trong quá khứ!" );
-         document.getElementById("time").valueAsDate = new Date(); 
-        return;
+        const today = new Date();
 
-}
+        today.setHours(0,0,0,0);
 
-      let quantity =
-      document.getElementById("quantity").value;
+        const selectedDate =
+        new Date(time);
 
-      if(source === ""
-      || objective === ""
-      || time === ""){
+        selectedDate.setHours(0,0,0,0);
 
-        alert(
-        "Vui lòng nhập đầy đủ thông tin!"
-        );
+        if(selectedDate < today){
 
-        return;
+          alert(
+            "Không thể chọn ngày trong quá khứ!"
+          );
+
+          document.getElementById("time").valueAsDate =
+          new Date();
+
+          return;
+
+        }
+
+        // =========================
+        // CHUYỂN TRANG
+        // =========================
+
+        window.location.href =
+        `search.html?source=${encodeURIComponent(source)}
+        &objective=${encodeURIComponent(objective)}
+        &time=${encodeURIComponent(time)}
+        &quantity=${encodeURIComponent(quantity)}`;
+
       }
 
-      if(source === objective){
-
-        alert(
-        "Điểm đi và điểm đến không được trùng!"
-        );
-
-        return;
-      }
-
-      document.getElementById("result")
-      .style.display = "block";
-
-      document.getElementById("rute")
-      .innerHTML =
-      source + " → " + objective;
-
-      document.getElementById("tgl")
-      .innerHTML = time;
-
-      document.getElementById("jml")
-      .innerHTML = quantity;
-
-      window.location.href = 
-      `search.html?source=${encodeURIComponent(source)}
-      &objective=${encodeURIComponent(objective)}
-      &time=${time.value}
-      &quantity=${encodeURIComponent(quantity)}`;
-
-    }
 
     // =========================
     // PROVINCES
@@ -1111,6 +1142,19 @@ function logout(){
   window.location.href = "index.html";
 
 }
+// =========================
+// TOGGLE MOBILE MENU
+// =========================
+
+function toggleMenu(){
+
+  document
+  .querySelector(".menu")
+  .classList.toggle("active");
+
+}
+
+
   </script>
 
 </body>

@@ -32,8 +32,13 @@
     </div>
 
   </div>
+ <div class="menu-toggle"
+onclick="toggleMenu()">
 
-  <div class="menu">
+  <i class="fa-solid fa-bars"></i>
+
+</div>
+  <div class="menu" id="mobileMenu">
 
     <a href="index.html">Trang chủ</a>
     <a href="orders.html">Đơn hàng của bạn</a>
@@ -75,6 +80,14 @@
   </div>
 
 </section>
+  <script>
+    function toggleMenu(){
 
+  document
+  .querySelector(".menu")
+  .classList.toggle("active");
+
+}
+  </script>
 </body>
 </html>

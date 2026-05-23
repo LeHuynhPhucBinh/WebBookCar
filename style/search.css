@@ -745,3 +745,89 @@ THÊM VÀO search.css
   color: white;
   border-color: #007bff;
 }
+/* =========================
+   SEAT GRID
+========================= */
+
+.seat-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(4,1fr);
+
+  gap:14px;
+
+  margin-top:25px;
+
+  margin-bottom:30px;
+
+}
+
+/* =========================
+   SEAT
+========================= */
+
+.seat{
+
+  height:55px;
+
+  border-radius:12px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.25s;
+
+  user-select:none;
+
+}
+
+/* GHẾ TRỐNG */
+
+.seat.available{
+
+  background:#dbeafe;
+
+  color:#1e3a8a;
+
+}
+
+/* GHẾ ĐANG CHỌN */
+
+.seat.selected{
+
+  background:#2563eb;
+
+  color:white;
+
+}
+
+/* GHẾ ĐÃ BÁN */
+
+.seat.booked{
+
+  background:#d1d5db;
+
+  color:#666;
+
+  cursor:not-allowed;
+
+}
+
+/* HOVER */
+
+.seat.available:hover{
+
+  transform:scale(1.05);
+
+  background:#93c5fd;
+
+}
