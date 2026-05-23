@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Lịch sử chuyến đi</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="/style/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+  <div class="logo">
+
+    <div class="logo-box">
+      CAR LIMOUSINE
+    </div>
+
+    <div class="logo-text">
+      <h2>ĐẶT VÉ XE</h2>
+      <p>Nhanh chóng - Dễ dàng - Tiện lợi</p>
+    </div>
+
+  </div>
+
+  <div class="menu">
+
+    <a href="index.html">Trang chủ</a>
+    <a href="orders.html">Đơn hàng của bạn</a>
+    <a href="history.html">Lịch sử chuyến đi</a>
+    <a href="contact.html">Liên hệ</a>
+
+  </div>
+
+</nav>
+
+<section class="page-section">
+
+  <h1 class="page-title">
+    Lịch sử chuyến đi
+  </h1>
+
+  <div class="card-box">
+
+    <h3>Hồ Chí Minh → Nha Trang</h3>
+
+    <p>Hoàn thành ngày: 12/05/2026</p>
+
+    <p>Đánh giá: ⭐⭐⭐⭐⭐</p>
+
+  </div>
+
+<div class="card-box">
+
+    <h3>Cần Thơ → Hồ Chí Minh</h3>
+
+    <p>Hoàn thành ngày: 21/05/2026</p> 
+
+    <p>Đánh giá: ⭐⭐⭐⭐⭐</p> 
+
+</div> 
+
+<div class="card-box">
+
+    <h3>Đà Lạt → Bình Dương</h3> 
+
+    <p>Hoàn thành ngày: 25/05/2026</p>
+
+    <p>Đánh giá: ⭐⭐⭐⭐</p>
+
+ </div>
+
+</section>
+<script>
+    // =========================
+// CHECK LOGIN PAGE
+// =========================
+
+let isLogin =
+localStorage.getItem("isLogin");
+
+if(isLogin !== "true"){
+
+  alert(
+    "Bạn chưa đăng nhập!"
+  );
+
+  window.location.href = "index.html";
+
+}
+</script>
+</body>
+</html>

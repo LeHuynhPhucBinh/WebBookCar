@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Đơn hàng của bạn</title>
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet"
+        href="/style/style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="logo">
+
+    <div class="logo-box">
+      CAR LIMOUSINE
+    </div>
+
+    <div class="logo-text">
+      <h2>ĐẶT VÉ XE</h2>
+      <p>Nhanh chóng - Dễ dàng - Tiện lợi</p>
+    </div>
+
+  </div>
+
+  <div class="menu">
+
+    <a href="index.html">Trang chủ</a>
+    <a href="orders.html">Đơn hàng của bạn</a>
+    <a href="history.html">Lịch sử chuyến đi</a>
+    <a href="contact.html">Liên hệ</a>
+
+  </div>
+
+</nav>
+
+<section class="page-section">
+
+  <h1 class="page-title">
+    Đơn hàng của bạn
+  </h1>
+  <div id="ordersContainer"></div>
+</section>
+        <script>
+
+  const orders = JSON.parse(
+    localStorage.getItem("orders")
+  ) || [];
+
+  const container =
+  document.getElementById(
+    "ordersContainer"
+  );
+
+  if(orders.length === 0){
+
+    container.innerHTML = `
+
+      <div class="card-box">
+
+        <h3>
+          Chưa có đơn hàng
+        </h3>
+
+        <p>
+          Bạn chưa đặt vé nào.
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+  else{
+
+    let html = "";
+
+    orders.reverse().forEach(order => {
+
+      html += `
+
+      <div class="card-box">
+
+        <h3>
+          ${order.route}
+        </h3>
+
+        <p>
+          Hãng xe:
+          ${order.company}
+        </p>
+
+        <p>
+          Ngày đi:
+          ${order.date}
+        </p>
+
+        <p>
+          Ghế:
+          ${order.seats}
+        </p>
+
+        <p>
+          Thanh toán:
+          ${order.payment}
+        </p>
+
+        <p>
+          Tổng tiền:
+          ${order.total}
+        </p>
+
+        <span class="status success">
+          ${order.status}
+        </span>
+
+      </div>
+
+      <br>
+
+      `;
+
+    });
+
+    container.innerHTML = html;
+
+  }
+  // =========================
+// CHECK LOGIN PAGE
+// =========================
+
+let isLogin =
+localStorage.getItem("isLogin");
+
+if(isLogin !== "true"){
+
+  alert(
+    "Bạn chưa đăng nhập!"
+  );
+
+  window.location.href = "index.html";
+
+}
+</script>
+</body>
+</html>
